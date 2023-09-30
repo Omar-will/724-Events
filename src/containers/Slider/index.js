@@ -8,13 +8,13 @@ const Slider = () => {
   const { data } = useData();
   const [index, setIndex] = useState(0);
   const byDateDesc = data?.focus.sort((evtA, evtB) =>
+  // changement du comparateur < en > pour trier dans l'ordre décroissant
     new Date(evtA.date) > new Date(evtB.date) ? -1 : 1
   );
   
   const nextCard = () => {
     setTimeout(
-      // add -1 to be at the last index on the array and verification 
-      // if byDateDesc exist if undefined default value is 0
+       // gére l'arrivée au bout du tableau
       () => setIndex(index < (byDateDesc?.length || 0)-1? index + 1 : 0),
       5000
     );
@@ -24,8 +24,8 @@ const Slider = () => {
   });
   return (
     <div className="SlideCardList">
-      {/*  Afficher les élément du slider dans deux map différent pour éviter la multiplication du call map à l'interieur de celui ci */}
       {byDateDesc?.map((event, idx) => (
+        // modif de place de key
         <div key={event.title}>
           <div
             className={`SlideCard SlideCard--${
@@ -52,8 +52,9 @@ const Slider = () => {
               key={event.title}
               type="radio"
               name="radio-button"
+               // index à la place de idx pour associer l'index au radioIdx
               checked={index === radioIdx}
-               // ajout d'un readOnly car on ne souhaite pas que la valeur de l'input soit modifié par le user
+               // ajout readOnly pour gérer erreur console : checked without onChange
               readOnly
             />
           ))}

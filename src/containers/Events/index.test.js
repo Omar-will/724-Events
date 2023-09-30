@@ -65,6 +65,7 @@ describe("When Events is created", () => {
         });
     });
     describe("and we select a category", () => {
+        // Suppression .only pour ne pas avoir de tests "skipped"
         it("an filtered list is displayed", async () => {
             await act(async () => {
                 api.loadData = jest.fn().mockReturnValue(data);

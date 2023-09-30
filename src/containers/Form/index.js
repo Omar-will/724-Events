@@ -4,7 +4,7 @@ import Field, { FIELD_TYPES } from "../../components/Field";
 import Select from "../../components/Select";
 import Button, { BUTTON_TYPES } from "../../components/Button";
 
-// remove 100 to setTimeout
+// modif du Timeout pour régler la fail du test sur Text "Envoyer" (pb async)
 const mockContactApi = () => new Promise((resolve) => { setTimeout(resolve, 900 ); })
 
 const Form = ({ onSuccess, onError }) => {
@@ -17,7 +17,7 @@ const Form = ({ onSuccess, onError }) => {
       try {
         await mockContactApi();
         setSending(false);
-        // use on sucess to display msg
+        // Ajout onSuccess pour ouvrir modale de confirmation 
         onSuccess();
       } catch (err) {
         setSending(false);

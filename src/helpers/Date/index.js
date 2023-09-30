@@ -1,3 +1,4 @@
+// Réindexation du tableau à partir de 0
 export const MONTHS = {
   0: "janvier",
   1: "février",
