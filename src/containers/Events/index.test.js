@@ -1,4 +1,5 @@
 import { fireEvent, render, screen } from "@testing-library/react";
+// importation de la fonction act
 import { act } from "react-dom/test-utils";
 import { api, DataProvider } from "../../contexts/DataContext";
 import Events from "./index";

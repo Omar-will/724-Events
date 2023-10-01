@@ -35,6 +35,7 @@ const EventList = () => {
   const pageNumber = Math.floor((filteredEvents?.length || 0) / PER_PAGE) + 1;
   const typeList = new Set(data?.events.map((event) => event.type));
   return (
+    // utilise une <div> avec un attribut data-testid comme élément parent
     <div data-testid="An error occured">
             {error && <div>An error occured</div>}
             {data === null ? (
